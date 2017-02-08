@@ -16,5 +16,6 @@ namespace puka.Models.DBModels
         public int ID { get; set; }
         public string tag { get; set; }
         public int? BranchTypesID { get; set; }
+        public virtual BranchTypesDBModels BranchTypesDBModels { get; set; }
     }
 }

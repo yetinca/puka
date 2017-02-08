@@ -21,7 +21,7 @@ namespace puka.App_Start
             {
                 cfg.CreateMap<AuthorsDBModel, AuthorsModel>();
                 cfg.CreateMap<BranchTypesDBModels, BranchTypesModel>();
-                cfg.CreateMap<ReportsContentDBModels, ReportsContentModel>();
+                cfg.CreateMap<ReportsContentDBModels, ReportsContentModel>().ForMember(m => m.author, mapper => mapper.MapFrom(b=> b.AuthorsDBModel.nickname));
                 cfg.CreateMap<ReportsDBModels, ReportsModel>();
                 cfg.CreateMap<TagRepAllocationDBModels, TagRepAllocationModel>();
                 cfg.CreateMap<TagTypesDBModel, TagTypesModel>();

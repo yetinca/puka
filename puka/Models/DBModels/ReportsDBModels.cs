@@ -16,6 +16,7 @@ namespace puka.Models.DBModels
         public int ID { get; set; }
         public DateTime? date { get; set; }
         public int? type { get; set; }
+        public virtual TypesOfRepDBModel TypesOfRepDBModel { get; set; }
         public string title { get; set; }
         public bool forOUTSIDE { get; set; }
         public int author { get; set; }
