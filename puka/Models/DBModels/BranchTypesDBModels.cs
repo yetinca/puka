@@ -17,4 +17,3 @@ namespace puka.Models.DBModels
         
       }
 }
-}
