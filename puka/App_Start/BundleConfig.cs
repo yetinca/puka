@@ -35,7 +35,8 @@ namespace puka.App_Start
                       "~/Content/Site.css",
                       "~/Content/DataTables/dataTables.bootstrap.css"
                       ));
+            BundleTable.EnableOptimizations = true;
         }
     }
-}
+   
 }
