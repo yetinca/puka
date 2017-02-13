@@ -1,0 +1,31 @@
+﻿body {
+    margin-top: 10px;
+    background-image: url('../img/Fs4Umml.jpg');
+    background-size: auto;
+    background-repeat:no-repeat;
+    display: compact;
+    font-family:SpecialElite;
+
+}
+nav{
+    background-color: #3E3E39;
+    
+    color:white;
+}
+.tlo{
+    background-color: #1E1811 !important;
+    color:white !important;
+}
+@font-face{
+    font-family: 'SpecialElite';
+    src: url('../fonts/SpecialElite.ttf') format('woff')
+}
+.ramka{
+border-color:#1E1E11 !important;
+}
+a{
+    color:#9C968F !important;
+}
+h1{
+    color:#474C4E !important;
+}
