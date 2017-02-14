@@ -10,7 +10,8 @@ namespace puka.Models
     {
         public int ID { get; set; }
         public DateTime? date { get; set; }
-        public string type { get; set; }
+        public string typestr { get; set; }
+        public int? TypesOfRepDBModelID { get; set; }
         public List<SelectListItem> TypeOfRepDropDown { get; set; } = GetTypeOfRepDropDown();
         public string title { get; set; }
         public bool forOUTSIDE { get; set; }

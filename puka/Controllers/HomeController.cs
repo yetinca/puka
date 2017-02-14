@@ -1,4 +1,6 @@
-﻿using System;
+﻿using puka.Methods;
+using puka.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,6 +14,24 @@ namespace puka.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult RaportsView()
+        {
+            var zapytanie = new StartModel();
+            string zap = "";
+            if (zapytanie.WyszukajWTemacie == null)
+            {
+                zap = " ";
+            }
+            else
+            {
+                zap = zapytanie.WyszukajWTemacie.ToString();
+
+            }
+            var model = ReportsMethod.GetReports(zap);
+            return View(model);
         }
     }
 }
