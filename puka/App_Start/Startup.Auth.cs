@@ -61,28 +61,28 @@ namespace puka.App_Start
             //    );
             //config.AssertConfigurationIsValid();
             //var mapper = config.CreateMapper();
-            MapperInitialize();
+            //MapperInitialize();
 
 
 
         }
-        static void MapperInitialize()
-        {
-            Mapper.Initialize(cfg =>
-                {
-                    cfg.CreateMap<AuthorsDBModel, AuthorsModel>();
-                    cfg.CreateMap<BranchTypesDBModels, BranchTypesModel>();
-                    cfg.CreateMap<ReportsContentDBModels, ReportsContentModel>().ForMember(m => m.author, mapper => mapper.MapFrom(b => b.AuthorsDBModel.nickname));
-                    cfg.CreateMap<ReportsDBModels, ReportsModel>().ForMember(m => m.typestr, mapper => mapper.MapFrom(b => b.TypesOfRepDBModel.type))
-                                                                       .ForMember(m => m.TypeOfRepDropDown, mapper => mapper.Ignore());
-                    cfg.CreateMap<TagRepAllocationDBModels, TagRepAllocationModel>();
-                    cfg.CreateMap<TagTypesDBModel, TagTypesModel>().ForMember(m => m.BranchTypesID, mapper => mapper.MapFrom(b => b.BranchTypesDBModels.branch));
-                    cfg.CreateMap<TypesOfRepDBModel, TypesOfRepModel>();
+        //static void MapperInitialize()
+        //{
+        //    Mapper.Initialize(cfg =>
+        //        {
+        //            cfg.CreateMap<AuthorsDBModel, AuthorsModel>();
+        //            cfg.CreateMap<BranchTypesDBModels, BranchTypesModel>();
+        //            cfg.CreateMap<ReportsContentDBModels, ReportsContentModel>().ForMember(m => m.author, mapper => mapper.MapFrom(b => b.AuthorsDBModel.nickname));
+        //            cfg.CreateMap<ReportsDBModels, ReportsModel>().ForMember(m => m.typestr, mapper => mapper.MapFrom(b => b.TypesOfRepDBModel.type))
+        //                                                               .ForMember(m => m.TypeOfRepDropDown, mapper => mapper.Ignore());
+        //            cfg.CreateMap<TagRepAllocationDBModels, TagRepAllocationModel>();
+        //            cfg.CreateMap<TagTypesDBModel, TagTypesModel>().ForMember(m => m.BranchTypesID, mapper => mapper.MapFrom(b => b.BranchTypesDBModels.branch));
+        //            cfg.CreateMap<TypesOfRepDBModel, TypesOfRepModel>();
 
 
-                }
-                );
-        }
+        //        }
+        //        );
+        //}
     }
    
 }

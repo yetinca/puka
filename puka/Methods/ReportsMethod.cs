@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using AutoMapper.QueryableExtensions;
 
 namespace puka.Methods
 {
@@ -13,9 +14,10 @@ namespace puka.Methods
 
         public static List<ReportsModel> GetReports(string zapytanie)
         {
-            Console.WriteLine(zapytanie);
-            var baza = from m in db.Reports where m.title.Contains(zapytanie) select m;
-            var model = Mapper.Map(baza.ToList(), new List<ReportsModel>());
+         
+
+            var baza = (from m in db.Reports where m.title.Contains(zapytanie) select m).ToList();
+            var model = Mapper.Map(baza, new List<ReportsModel>());
             Mapper.AssertConfigurationIsValid();
 
             return (model);
