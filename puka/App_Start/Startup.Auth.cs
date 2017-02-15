@@ -14,7 +14,7 @@ namespace puka.App_Start
     {
         public void ConfigureAuth(IAppBuilder app)
         {
-            MapperInitialize();
+            
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
@@ -46,25 +46,43 @@ namespace puka.App_Start
             // This is similar to the RememberMe option when you log in.
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
-            
+            //var config = new MapperConfiguration(
+            //    cfg =>
+            //    {
+            //        cfg.CreateMap<AuthorsDBModel, AuthorsModel>();
+            //        cfg.CreateMap<BranchTypesDBModels, BranchTypesModel>();
+            //        cfg.CreateMap<ReportsContentDBModels, ReportsContentModel>().ForMember(m => m.author, mapper => mapper.MapFrom(b => b.AuthorsDBModel.nickname));
+            //        cfg.CreateMap<ReportsDBModels, ReportsModel>().ForMember(m => m.typestr, mapper => mapper.MapFrom(b => b.TypesOfRepDBModel.type))
+            //                                                           .ForMember(m => m.TypeOfRepDropDown, mapper => mapper.Ignore());
+            //        cfg.CreateMap<TagRepAllocationDBModels, TagRepAllocationModel>();
+            //        cfg.CreateMap<TagTypesDBModel, TagTypesModel>().ForMember(m => m.BranchTypesID, mapper => mapper.MapFrom(b => b.BranchTypesDBModels.branch));
+            //        cfg.CreateMap<TypesOfRepDBModel, TypesOfRepModel>();
+            //    }
+            //    );
+            //config.AssertConfigurationIsValid();
+            //var mapper = config.CreateMapper();
+            MapperInitialize();
+
+
+
         }
-         static void MapperInitialize()
-    {
-        Mapper.Initialize(cfg =>
-            {
-                cfg.CreateMap<AuthorsDBModel, AuthorsModel>();
-                cfg.CreateMap<BranchTypesDBModels, BranchTypesModel>();
-                cfg.CreateMap<ReportsContentDBModels, ReportsContentModel>().ForMember(m => m.author, mapper => mapper.MapFrom(b=> b.AuthorsDBModel.nickname));
-                cfg.CreateMap<ReportsDBModels, ReportsModel>().ForMember(m=> m.typestr, mapper => mapper.MapFrom(b=> b.TypesOfRepDBModel.type))
-                                                                   .ForMember(m => m.TypeOfRepDropDown, mapper => mapper.Ignore());
-                cfg.CreateMap<TagRepAllocationDBModels, TagRepAllocationModel>();
-                cfg.CreateMap<TagTypesDBModel, TagTypesModel>().ForMember(m=> m.BranchTypesID, mapper => mapper.MapFrom(b=> b.BranchTypesDBModels.branch));
-                cfg.CreateMap<TypesOfRepDBModel, TypesOfRepModel>();
+        static void MapperInitialize()
+        {
+            Mapper.Initialize(cfg =>
+                {
+                    cfg.CreateMap<AuthorsDBModel, AuthorsModel>();
+                    cfg.CreateMap<BranchTypesDBModels, BranchTypesModel>();
+                    cfg.CreateMap<ReportsContentDBModels, ReportsContentModel>().ForMember(m => m.author, mapper => mapper.MapFrom(b => b.AuthorsDBModel.nickname));
+                    cfg.CreateMap<ReportsDBModels, ReportsModel>().ForMember(m => m.typestr, mapper => mapper.MapFrom(b => b.TypesOfRepDBModel.type))
+                                                                       .ForMember(m => m.TypeOfRepDropDown, mapper => mapper.Ignore());
+                    cfg.CreateMap<TagRepAllocationDBModels, TagRepAllocationModel>();
+                    cfg.CreateMap<TagTypesDBModel, TagTypesModel>().ForMember(m => m.BranchTypesID, mapper => mapper.MapFrom(b => b.BranchTypesDBModels.branch));
+                    cfg.CreateMap<TypesOfRepDBModel, TypesOfRepModel>();
 
 
-            }
-            );
-    }
+                }
+                );
+        }
     }
    
 }
