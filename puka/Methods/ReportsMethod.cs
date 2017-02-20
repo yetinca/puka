@@ -14,13 +14,22 @@ namespace puka.Methods
 
         public static List<ReportsModel> GetReports(string zapytanie)
         {
-         
 
-            var baza = (from m in db.Reports where m.title.Contains(zapytanie) select m).ToList();
-            var model = Mapper.Map(baza, new List<ReportsModel>());
-            Mapper.AssertConfigurationIsValid();
+            var raporty = db.Reports.Include("ID")
+                .Include("date")
+                .Include("TypesOfRepDBModelID")
+                .Include("title")
+        .Include("forOUTSIDE")
+        .Include("author")
+        .Where(m=> m.title.Contains(zapytanie))
+        .ProjectTo<ReportsModel>()
+        .ToList();
 
-            return (model);
+        ////var baza = (from m in db.Reports where m.title.Contains(zapytanie) select m).ToList();
+        //var model = Mapper.Map(db.Reports.ToList(), new List<ReportsModel>());
+        //    Mapper.AssertConfigurationIsValid();
+
+            return (raporty);
         }
 
     }

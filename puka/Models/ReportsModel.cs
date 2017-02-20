@@ -15,7 +15,7 @@ namespace puka.Models
         public List<SelectListItem> TypeOfRepDropDown { get; set; } = GetTypeOfRepDropDown();
         public string title { get; set; }
         public bool forOUTSIDE { get; set; }
-        public int author { get; set; }
+        public int? author { get; set; }
 
         private static List<SelectListItem> GetTypeOfRepDropDown()
         {

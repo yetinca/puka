@@ -1,7 +1,7 @@
 ﻿body {
     margin-top: 10px;
     background-image: url('../img/gąstał1.jpg');
-    background-size: auto;
+    background-size: cover;
     background-repeat:no-repeat;
     display: compact;
     font-family:SpecialElite;
@@ -31,4 +31,7 @@ h1{
 }
 .top-margin{
     margin-top:10px !important;
+}
+.tlo-tabelek{
+    background-color:#9B9B8E !important;
 }

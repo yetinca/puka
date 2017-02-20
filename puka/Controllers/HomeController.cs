@@ -13,24 +13,26 @@ namespace puka.Controllers
         // GET: Home
         public ActionResult Index()
         {
+           
             return View();
         }
 
-        [HttpGet]
-        public ActionResult RaportsView()
+     
+        public ActionResult RaportsView(string wyszukaj)
         {
-            var zapytanie = new StartModel();
-            string zap = "";
-            if (zapytanie.WyszukajWTemacie == null)
+           
+            if (wyszukaj == null)
             {
-                zap = " ";
+                wyszukaj = " ";
             }
-            else
-            {
-                zap = zapytanie.WyszukajWTemacie.ToString();
+           
+            var model = ReportsMethod.GetReports(wyszukaj);
+            return View(model);
+        }
 
-            }
-            var model = ReportsMethod.GetReports(zap);
+        public ActionResult NewReport()
+        {
+            var model = ReportsAllMethod.GetAllReports();
             return View(model);
         }
     }

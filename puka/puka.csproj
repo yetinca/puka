@@ -455,6 +455,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Methods\ReportsAllMethod.cs" />
     <Compile Include="Methods\ReportsMethod.cs" />
     <Compile Include="Models\AuthorsModel.cs" />
     <Compile Include="Models\BranchTypesModel.cs" />
@@ -487,6 +488,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\RaportsView.cshtml" />
+    <Content Include="Views\Home\NewReport.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
