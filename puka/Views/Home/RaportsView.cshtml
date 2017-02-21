@@ -1,33 +1,21 @@
-﻿@model List<puka.Models.ReportsModel>
+﻿@model  puka.Models.ReportsModel
 @{
     ViewBag.Title = "RaportsView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-    <table id="raportytbl" class="table table-hover table-striped" cellspacing="0" >
-<thead>
-    <tr>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        <th>5</th>
+@using (Html.BeginForm("NewReport", "Home"))
+{
+    @Html.AntiForgeryToken()
 
-    </tr>
-</thead>
-        <tbody>
-            @foreach(var item in Model)
-            {
-                <tr id="@item.ID">
-                    <td>@item.title</td>
-                    <td>@item.date</td>
-                    <td>@item.author</td>
-                    <td>@item.typestr</td>
-                    <td>@item.forOUTSIDE</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
+    <div class="container">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-9">
+                    @Html.LabelFor(m => m.title, new { @class = "label-form" })
+                    @Html.TextBoxFor(m => m.title, new { @class = "form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+}

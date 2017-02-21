@@ -1,33 +1,77 @@
-﻿@model List<puka.Models.ReportsModel>
+﻿@model  puka.Models.ReportsModel
 @{
     ViewBag.Title = "NewReport";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
-    <table id="raportytbl" class="table table-hover tlo-tabelek" cellspacing="0">
-        <thead>
-            <tr>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container">
+        <h1 class="center-block">Wprowadź dane nowego raportu</h1>
+        <div class="form-group form-font">
+            <div class="row top-margin">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.title, new { @class = "label-form" })
+                </div>
+                <div class="col-md-9">
+                    @Html.TextBoxFor(m => m.title, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row top-margin">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.date, new { @class = "label-form" })
+                </div>
+                <div class="col-md-2">
+                    @Html.TextBoxFor(m => m.date, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="row top-margin">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.forOUTSIDE, new { @class = "label-form" })
+                </div>
+                <div class="col-md-2 ">
+                        @Html.CheckBoxFor(m => m.forOUTSIDE, new { @class = "form-check check" })
+                </div>
+            </div>
+            <div class="row top-margin">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.TypesOfRepDBModelID, new { @class = "label-form" })
+                </div>
+                <div class="col-md-2 ">
+                    @Html.DropDownListFor(m => m.TypesOfRepDBModelID, Model.TypeOfRepDropDown, new { @class = "selectpicker form-control" })
+                </div>
+            </div>
+            <div class="row top-margin">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.author, new { @class = "label-form" })
+                </div>
+                <div class="col-md-2 ">
+                    @Html.DropDownListFor(m => m.author, Model.authorDropDown, new { @class = "selectpicker form-control" })
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section scripts{
+    <script>
+        $('#date').datepicker({
+            format: "dd-mm-yyyy",
+            weekStart: 1,
+            todayBtn: "linked",
+            language: "pl",
+            calendarWeeks: true,
+            autoclose: true,
+            todayHighlight: true,
+            datesDisabled: ['02/06/2017', '02/21/2017']
+        });
+    </script>
 
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr id="@item.ID">
-                    <td>@item.title</td>
-                    <td>@item.date</td>
-                    <td>@item.author</td>
-                    <td>@item.typestr</td>
-                    <td>@item.forOUTSIDE</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+<script>
+    $('.TypesOfRepDBModelID').selectpicker({
+            style: 'btn-info',
+            size: 4
+        });
 
+</script>
+    }

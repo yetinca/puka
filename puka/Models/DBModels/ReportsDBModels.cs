@@ -19,6 +19,7 @@ namespace puka.Models.DBModels
         public virtual TypesOfRepDBModel TypesOfRepDBModel { get; set; }
         public string title { get; set; }
         public bool forOUTSIDE { get; set; }
-        public int? author { get; set; }
+        public int? AuthorsDBModelID { get; set; }
+        public virtual AuthorsDBModel AuthorsDBModel { get; set; }
     }
 }

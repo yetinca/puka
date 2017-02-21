@@ -32,8 +32,8 @@ namespace puka.Controllers
 
         public ActionResult NewReport()
         {
-            var model = ReportsAllMethod.GetAllReports();
-            return View(model);
+            
+            return View(new ReportsModel());
         }
     }
 }
