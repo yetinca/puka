@@ -22,7 +22,9 @@ namespace puka.App_Start
                 .ForMember(m => m.TypesOfRepDBModelID, mapper => mapper.MapFrom(b => b.TypesOfRepDBModel.ID))
                 .ForMember(m => m.TypesOfRepModel, mapper => mapper.MapFrom(b => b.TypesOfRepDBModel))
                 .ForMember(m => m.AuthorsModel, mapper => mapper.MapFrom(b => b.AuthorsDBModel))
+                .ForMember(m => m.TagRepAllocationModels, mapper => mapper.MapFrom(b => b.TagRepAllocationDBModels.Count()))
                 .ForMember(m => m.author, mapper => mapper.MapFrom(b => b.AuthorsDBModel.ID));
+             
                 cfg.CreateMap<TagRepAllocationDBModels, TagRepAllocationModel>();
                 cfg.CreateMap<TagTypesDBModel, TagTypesModel>().ForMember(m => m.BranchTypesID, mapper => mapper.MapFrom(b => b.BranchTypesDBModels.branch))
                                                                 .ForMember(m => m.BranchTypesDropDown, mapper => mapper.Ignore()); ;

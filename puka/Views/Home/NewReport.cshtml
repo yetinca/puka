@@ -7,6 +7,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+
     <div class="container">
         <h1 class="center-block">Wprowadź dane nowego raportu</h1>
         <div class="form-group form-font">
@@ -31,7 +32,7 @@
                     @Html.LabelFor(m => m.forOUTSIDE, new { @class = "label-form" })
                 </div>
                 <div class="col-md-2 ">
-                        @Html.CheckBoxFor(m => m.forOUTSIDE, new { @class = "form-check check" })
+                    @Html.CheckBoxFor(m => m.forOUTSIDE, new { @class = "form-check check" })
                 </div>
             </div>
             <div class="row top-margin">
@@ -44,10 +45,15 @@
             </div>
             <div class="row top-margin">
                 <div class="col-md-2">
-                    @Html.LabelFor(m => m.author, new { @class = "label-form" })
+                    @Html.LabelFor(m => m.TagRepAllocationModels, new { @class = "label-form" })
                 </div>
                 <div class="col-md-2 ">
                     @Html.DropDownListFor(m => m.author, Model.authorDropDown, new { @class = "selectpicker form-control" })
+                </div>
+            </div>
+            <div class="row top-margin">
+                <div class="col-md-1 col-md-offset-3" align="left" )>
+                    <button class="btn form-control" type="submit">Zapisz</button>
                 </div>
             </div>
         </div>
@@ -56,22 +62,23 @@
 @section scripts{
     <script>
         $('#date').datepicker({
-            format: "dd-mm-yyyy",
+            format: "yyyy-mm-dd",
             weekStart: 1,
             todayBtn: "linked",
             language: "pl",
             calendarWeeks: true,
             autoclose: true,
             todayHighlight: true,
-            datesDisabled: ['02/06/2017', '02/21/2017']
+            datesDisabled: ['02/06/2017', '02/21/2019']
+          
         });
     </script>
 
-<script>
-    $('.TypesOfRepDBModelID').selectpicker({
+    <script>
+        $('.TypesOfRepDBModelID').selectpicker({
             style: 'btn-info',
             size: 4
         });
 
-</script>
-    }
+    </script>
+}

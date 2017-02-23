@@ -21,5 +21,7 @@ namespace puka.Models.DBModels
         public bool forOUTSIDE { get; set; }
         public int? AuthorsDBModelID { get; set; }
         public virtual AuthorsDBModel AuthorsDBModel { get; set; }
+        public virtual ICollection<TagRepAllocationDBModels> TagRepAllocationDBModels { get; set; }
+
     }
 }

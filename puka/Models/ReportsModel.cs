@@ -1,4 +1,5 @@
-﻿using puka.Models.DBModels;
+﻿using puka.Models;
+using puka.Models.DBModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -29,6 +30,7 @@ namespace puka.Models
         public virtual AuthorsModel AuthorsModel { get; set; }
         [ForeignKey("TypesOfRepDBModelID")]
         public virtual TypesOfRepModel TypesOfRepModel { get; set; }
+        public virtual ICollection<TagRepAllocationModel> TagRepAllocationModels { get; set; }
 
 
         private static List<SelectListItem> GetTypeOfRepDropDown()
