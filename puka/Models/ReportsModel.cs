@@ -30,9 +30,19 @@ namespace puka.Models
         public virtual AuthorsModel AuthorsModel { get; set; }
         [ForeignKey("TypesOfRepDBModelID")]
         public virtual TypesOfRepModel TypesOfRepModel { get; set; }
-        public virtual ICollection<TagRepAllocationModel> TagRepAllocationModels { get; set; }
+        public virtual IEnumerable<TagRepAllocationModel> TagRepAllocationModels { get; set; }
+        public IEnumerable<string> Tags { get; set; } = TagsID();
 
+        private static IEnumerable<string> TagsID()
+        {
+            var db = new ApplicationDbContext();
 
+            var listaTags = db.TagRepAllocation;
+
+            var tags = listaTags.Select(a => a.TagTypesDBModel.tag).AsEnumerable();
+
+            return tags;
+        }
         private static List<SelectListItem> GetTypeOfRepDropDown()
         {
             var db = new ApplicationDbContext();

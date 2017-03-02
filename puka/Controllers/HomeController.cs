@@ -50,7 +50,7 @@ namespace puka.Controllers
                 newModel.TypesOfRepDBModelID = model.TypesOfRepDBModelID;
                 newModel.title = model.title;
                 newModel.forOUTSIDE = model.forOUTSIDE;
-
+                newModel.TagRepAllocationDBModels = model.TagRepAllocationModels;
                 db.Reports.Add(newModel);
                 db.SaveChanges();
 
